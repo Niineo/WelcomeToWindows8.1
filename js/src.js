@@ -9,24 +9,19 @@ var TIPS = ['你好', '我们正在为你进行相关设置', ['正在获取关�
     i = 0,
     timer = null;
 
-window.onload = function() {
+function init(){
+    if(document.readyState == 'complete'){
         var text = $('.text'),
             rgb = [0, 0, 0];
         alpha(text, TIPS[i], true, 2000, 1800);
         setTimeout(function() {
             timer = setInterval(function() {
-                rgb = color(rgb);
-                $('.main').style.backgroundColor = "rgb(" + rgb.join(',') + ")";
+                $('.main').style.backgroundColor = "rgb(" + color(rgb).toString() + ")";
             }, 1000 / 60);
         }, 17500);
-
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "//hm.baidu.com/hm.js?9cab9232535f34b793312a5204874e45";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
     }
+}
+document.addEventListener('readystatechange', init, true);
     /**
      * [$ 获取目标元素]
      * @param  {[element]} selector [description]
