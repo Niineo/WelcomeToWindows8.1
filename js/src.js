@@ -26,7 +26,7 @@ function jump(){
     a.href = "https://github.com/xcss/Welcome8.1";
     a.target = "_blank";
     a.click();
-    console.log(1)
+    a.remove();
 }
 document.addEventListener('readystatechange', init, true);
     /**
