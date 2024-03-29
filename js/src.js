@@ -21,6 +21,12 @@ function init(){
         }, 17500);
     }
 }
+function jump(){
+    var a = document.createElement('a');
+    a.href = "https://github.com/xcss/Welcome8.1";
+    a.target = "_blank";
+    a.click();
+}
 document.addEventListener('readystatechange', init, true);
     /**
      * [$ 获取目标元素]
@@ -45,21 +51,9 @@ function alpha(target, text, fade, consume, delay, callback) {
     if (i == TIPS.length) {
         clearInterval(timer);
         if (document.addEventListener) {
-            document.addEventListener('click', function() {
-                var form = document.createElement('form');
-                form.action = "https://github.com/xcss/Welcome8.1";
-                form.method = "get";
-                form.target = "_blank";
-                form.submit();
-            });
+            document.addEventListener('click', jump);
         } else if (document.attachEvent) {
-            document.attachEvent('onclick', function() {
-                var form = document.createElement('form');
-                form.action = "https://github.com/xcss/Welcome8.1";
-                form.method = "get";
-                form.target = "_blank";
-                form.submit();
-            });
+            document.attachEvent('onclick', jump);
         }
         return;
     }
